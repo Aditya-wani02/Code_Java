@@ -8,6 +8,13 @@ public class MyArray {
     }
 
     public void insert(int value) {
+        if (currentindex == items.length) {
+            int[] temp = new int[2 * items.length];
+            for (int i = 0; i < currentindex; i++) {
+                temp[i] = items[i];
+            }
+            items = temp;
+        }
         this.items[currentindex] = value;
         currentindex++;
     }

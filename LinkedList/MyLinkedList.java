@@ -1,84 +1,93 @@
 
-
-class Node{
+class Node {
     public int data;
-    public Node next =null;
-    
-    
-    public Node(int val){
-        this.data = val;
-    } 
-}
+    public Node next = null;
 
+    public Node(int val) {
+        this.data = val;
+    }
+}
 
 public class MyLinkedList {
     private Node head;
     private Node tail;
 
-    public MyLinkedList(){
-        head =null;
+    public MyLinkedList() {
+        head = null;
         tail = null;
 
     }
 
-    public void insert(int val){
+    public void insert(int val) {
         Node node = new Node(val);
-        if(head == null){
+        if (isEmpty()) {
             head = tail = node;
-        }
-        else{
+        } else {
             tail.next = node;
-            tail = node ;
+            tail = node;
 
+            // Node current = head;
+            // while( current.next != null){
+            // current=current.next;
 
-
-
-        //     Node current = head;
-        //     while( current.next != null){
-        //         current=current.next;
-
-        //     }
-        //     current.next = node;
+            // }
+            // current.next = node;
         }
     }
-    
-    public String toString(){
+
+    public String toString() {
         Node current = head;
         StringBuilder result = new StringBuilder();
 
-        while(current != null){
+        while (current != null) {
             result.append(current.data);
-            if(current.next != null)
-            result.append( " --> ");
+            if (current.next != null)
+                result.append(" --> ");
             current = current.next;
         }
         return result.toString();
 
     }
 
-    public int sum(){
+    public int sum() {
         Node current = head;
-        int sum =0;
-        while(current != null){
-            sum = sum+current.data;
+        int sum = 0;
+        while (current != null) {
+            sum = sum + current.data;
 
             current = current.next;
         }
         return sum;
     }
 
-    public int indexOf(int val){
+    public int indexOf(int val) {
         Node current = head;
         int index = 0;
-        while(current != null){
-            
-            if(current.data == val)
-            return index;
-             
-        index++;
+        while (current != null) {
+
+            if (current.data == val)
+                return index;
+
+            index++;
             current = current.next;
         }
         return -1;
+
+    }
+
+    public void insertInBegin(int val) {
+        Node n = new Node(val);
+        if (isEmpty()) {
+            insert(val);
+        }
+
+        n.next = head;
+        head = n;
+
+    }
+
+    public boolean isEmpty() {
+        return head == null && tail == null;
 
     }
 

@@ -13,9 +13,15 @@ public class Main {
 
         // System.out.println(list.indexOf(1));
         // System.out.println(list.sum());
-        System.out.println((list));
-        list.insertInBegin(10);
-        list.insertInBegin(10);
+        System.out.println(list);
+        // list.insertInBegin(10);
+        // list.insertInBegin(10);
+        // list.insertAt(2, 23);
+        // list.insertAt(8, 99);
+        // list.reverse();
+        // list.deleteFirst();
+        list.deletelast();
+        list.deletelast();
         System.out.println(list);
 
     }

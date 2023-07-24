@@ -91,4 +91,61 @@ public class MyLinkedList {
 
     }
 
+    public void insertAt(int index, int val) {
+        if (isEmpty())
+            throw new IllegalArgumentException();
+        Node node = new Node(val);
+        Node current = head, previous = null;
+
+        while (index > 0 && current != null) {
+            previous = current;
+            current = current.next;
+            index--;
+        }
+        previous.next = node;
+        node.next = current;
+
+    }
+
+    public void reverse() {
+        Node prev = null;
+        Node current = head;
+        Node next = head.next;
+
+        while (next != null) {
+            current.next = prev;
+            prev = current;
+            current = next;
+            next = next.next;
+        }
+        head = current;
+        current.next = prev;
+    }
+
+    public void deleteFirst() {
+        if (isEmpty())
+            return;
+
+        Node temp = head;
+        head = head.next;
+        temp.next = null;
+
+    }
+
+    public void deletelast() {
+        if (isEmpty())
+            return;
+
+        Node prev = null;
+        Node next = head;
+
+        while (next.next != null) {
+
+            prev = next;
+            next = next.next;
+        }
+        prev.next = null;
+
+    }
+
 }

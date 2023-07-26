@@ -20,8 +20,9 @@ public class Main {
         // list.insertAt(8, 99);
         // list.reverse();
         // list.deleteFirst();
-        list.deletelast();
-        list.deletelast();
+        // list.deletelast();
+        // list.deletelast();
+        list.removeNthFromEndfast(2);
         System.out.println(list);
 
     }

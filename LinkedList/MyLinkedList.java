@@ -148,4 +148,68 @@ public class MyLinkedList {
 
     }
 
+    public void removeNthFromEnd(int n) {
+        if (isEmpty())
+            return;
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+        int totalNodes = 0;
+        Node current = head;
+        while (current != null) {
+            totalNodes++;
+            current = current.next;
+        }
+        int indexfromfront = totalNodes - n + 1;
+        Node prev = null;
+        current = head;
+        while (indexfromfront > 1 && current != null) {
+            prev = current;
+            current = current.next;
+            indexfromfront--;
+        }
+        if (prev == null) {
+            head = current.next;
+            current.next = null;
+            return;
+
+        }
+        prev.next = current.next;
+        current.next = null;
+
+    }
+
+    public void removeNthFromEndfast(int n) {
+
+        if (isEmpty())
+            return;
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+        Node fast = head;
+        Node current = head;
+        Node prev = null;
+
+        while (n > 1 && fast != null) {
+            fast = fast.next;
+            n--;
+        }
+
+        while (fast.next != null) {
+            prev = current;
+            current = current.next;
+            fast = fast.next;
+        }
+        if (prev == null) {
+            head = current.next;
+            current.next = null;
+            return;
+
+        }
+        prev.next = current.next;
+        current.next = null;
+
+    }
 }

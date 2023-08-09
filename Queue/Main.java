@@ -5,7 +5,7 @@ public class Main {
 
        MyQueue queue = new MyQueue(10);
     //  QueueUsingStack queue = new QueueUsingStack();
-
+    // pri_enqeue is priority queue 
        queue.pri_enqueue(5);
        queue.pri_enqueue(22);
        queue.pri_enqueue(3);
